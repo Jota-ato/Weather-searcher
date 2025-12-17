@@ -10,7 +10,7 @@ export default {
       },
       colors: {
           white: '#FFF',
-          primary: '#F59E0B',
+          primary: '#F59E0B'
       }
   },
   plugins: [],
