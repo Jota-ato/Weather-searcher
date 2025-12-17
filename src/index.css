@@ -1,8 +1,14 @@
 @import "tailwindcss";
 
+@theme {
+  /* Aquí defines tu color personalizado */
+  --color-primary: #F59E0B;
+}
+
 html {
     font-size: 62.5%;
 }
+
 body {
     font-family: 'Outfit', sans-serif;
     font-size: 1.6rem;
