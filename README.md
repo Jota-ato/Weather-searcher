@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+🌦️ Weather Searcher
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, high-performance weather search application built with React 19, TypeScript, and Vite. This application provides real-time weather data for any city worldwide using the OpenWeather API, featuring strict data validation and a responsive UI.
 
-Currently, two official plugins are available:
+🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Real-time Weather Data: Get current temperature, thermal sensation, and daily high/low temperatures.
 
-## React Compiler
+Geocoding Search: Search for weather data using city names and country codes.
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+Type-Safe Validation: Implements Zod for schema validation of API responses to ensure application stability and robust error handling.
 
-## Expanding the ESLint configuration
+Modern UI/UX: Styled with Tailwind CSS v4 for a clean, responsive interface.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Visual Feedback: Includes a custom CSS spinner for loading states and error alerts for invalid searches.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+🛠️ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Framework: React 19
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Build Tool: Vite
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Language: TypeScript
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Styling: Tailwind CSS v4
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Data Validation: Zod
+
+HTTP Client: Axios
+
+📋 Prerequisites
+
+To run this project, you need an API key from OpenWeatherMap. This project uses the Current Weather Data and Geocoding API endpoints.
+
+⚙️ Installation
+
+Clone the repository:
+
+git clone [https://github.com/your-username/weather-searcher.git](https://github.com/your-username/weather-searcher.git)
+cd weather-searcher
+
+
+Install dependencies:
+
+npm install
+
+
+Configure Environment Variables:
+Create a .env file in the root directory and add your API key:
+
+VITE_API_KEY=your_openweather_api_key
+
+
+Start the development server:
+
+npm run dev
+
+
+🌐 Deployment Notes (Netlify/Vercel)
+
+When deploying this project to production, keep the following in mind:
+
+Environment Variables: Ensure you add VITE_API_KEY to your hosting provider's environment variables panel. In Vite, variables must start with the VITE_ prefix to be accessible in the client-side code.
+
+Security (HTTPS): All API calls are configured using the https protocol to comply with modern browser security policies (preventing "Mixed Content" errors on SSL-secured domains).
+
+📂 Project Structure
+
+src/hooks/useWeather.ts: Contains the core logic for API calls, state management, and Zod schema validation.
+
+src/components/Form.tsx: A controlled component for user input and search execution.
+
+src/components/WeatherDetail.tsx: Handles the display of processed weather information.
+
+src/components/Spinner/: Contains the loading animation logic and styles.
+
+src/helpers/: Utility functions for data transformation (e.g., Kelvin to Celsius conversion).
+
+Developed with ❤️ by [Your Name/Github Username]
