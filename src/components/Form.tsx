@@ -3,8 +3,11 @@ import { countries } from "../data/coutries";
 import type { SearchType } from '../types';
 import Alert from './Alert';
 
+type FormProps = {
+    fetchWeather: (search: SearchType) => Promise<void>
+}
 
-export default function Form() {
+export default function Form({fetchWeather} : FormProps) {
 
     const [search, setSearch] = useState<SearchType>({
         city: '',
@@ -27,8 +30,8 @@ export default function Form() {
             setAlert('Todos los campos son obligatorios');
             return;
         }
-
         setAlert('');
+        fetchWeather(search);
     };
     
     return (
