@@ -57,7 +57,7 @@ export default function Form({fetchWeather} : FormProps) {
                     value={search.country}
                     onChange={handleChange}
                 >
-                    <option value="_" disabled className='bg-black'>Seleccione su país</option>
+                    <option value="" disabled className='bg-black'>Seleccione su país</option>
                     {
                         countries.map(country => (
                             <option key={country.code} value={country.code} className='bg-black'>

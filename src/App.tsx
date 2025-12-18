@@ -1,9 +1,11 @@
 import Form from "./components/Form";
+import Spinner from "./components/Spinner/Spinner";
+import WeatherDetail from "./components/WeatherDetail";
 import useWeather from "./hooks/useWeather";
 
 function App() {
 
-    const { fetchWeather } = useWeather();
+    const { fetchWeather, weather, hasWeatherData, loading } = useWeather();
 
     return (
         <>
@@ -13,7 +15,11 @@ function App() {
                 <Form
                     fetchWeather={fetchWeather}
                 />
-                <p>2</p>
+                {loading && <Spinner/>}
+                {hasWeatherData &&
+                    <WeatherDetail
+                        weather={weather}
+                    />}
             </div>
         </>
     );
