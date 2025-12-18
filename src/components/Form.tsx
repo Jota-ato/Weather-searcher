@@ -77,7 +77,8 @@ export default function Form({fetchWeather} : FormProps) {
             {alert &&
                 <Alert>
                     {alert}
-                </Alert>}
+                </Alert>
+            }
         </form>
     );
 }
